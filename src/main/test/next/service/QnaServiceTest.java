@@ -40,7 +40,9 @@ public class QnaServiceTest {
     @Before
     public void setUp() throws Exception {
         when(questionDao.findById(1)).thenReturn(
-                new Question(1, "java", "궁금해요", "궁금해요", null,         when(answerDao.findAllByQuestionId(1)).thenReturn(Arrays.asList(
+                new Question(1, "java", "궁금해요", "궁금해요", null, 1)
+        );
+        when(answerDao.findAllByQuestionId(1)).thenReturn(Arrays.asList(
                 new Answer("wym", "잘했어요", 1)
                 , new Answer("meme", "더 잘했어요", 1)
         ));
