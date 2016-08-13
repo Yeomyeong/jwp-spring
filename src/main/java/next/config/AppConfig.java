@@ -3,16 +3,14 @@ package next.config;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 @ComponentScan(
-	basePackages = { "next.service", "next.dao" },
+	basePackages = { "next.service", "next.dao", "next.aspect" },
 	excludeFilters = @ComponentScan.Filter(value = Controller.class, type = FilterType.ANNOTATION)
 )
 public class AppConfig {
